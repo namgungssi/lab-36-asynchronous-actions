@@ -1,7 +1,7 @@
 {
   "name": "lab-36-asynchronous-actions",
   "version": "1.0.0",
-  "description": "*routes/costume-routes.js*  Defines routes for the Costume model.",
+  "description": "*routes/uniform-routes.js*",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.2",

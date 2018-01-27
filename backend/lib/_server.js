@@ -11,7 +11,7 @@ let app = express();
 
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-mongoose.connect(process.env.DB_URL || 'mongodb://localhost:27017/costumes_prod', {useMongoClient: true});
+mongoose.connect(process.env.DB_URL || 'mongodb://localhost:27017/uniforms_prod', {useMongoClient: true});
 
 app.use('*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -23,7 +23,7 @@ app.use('*', (req, res, next) => {
 });
 
 app.use('/api', require(__dirname + '/../routes/accessory-routes'));
-app.use('/api', require(__dirname + '/../routes/costume-routes'));
+app.use('/api', require(__dirname + '/../routes/uniform-routes'));
 app.use('*', (req, res, next) => {
 
   next(404, 'Page Does Not Exist');
