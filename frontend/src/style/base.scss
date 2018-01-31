@@ -1,0 +1,22 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+
+body {
+  background: white;
+  color: black;
+}
+
+
+form {
+  display: flex;
+}
+
+
+input {
+  border-radius: 1px;
+  outline: none;
+}

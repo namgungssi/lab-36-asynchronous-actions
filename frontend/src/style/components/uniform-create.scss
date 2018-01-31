@@ -1,0 +1,88 @@
+#formDefault {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover {
+    background: black;
+    outline: none;
+  }
+}
+
+
+div#uniformForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+#uniformName {
+  width: $uniform-name-width;
+}
+
+
+#uniformDescrip {
+  width: $description-amt-width;
+}
+
+
+input {
+  border-radius: 3px;
+  margin-right: .3em;
+  border: 1px solid transparent;
+  color: black;
+  font-style: bold;
+  font-size: .6em;
+
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#uniformSubmitButton {
+  display: block;
+  margin-left: .2em;
+  width: 5em;
+  height: 2em;
+  margin-right: 2em;
+  color: pink;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 10px;
+
+    &:hover{
+      color: red;
+    }
+}
+
+
+input.inactive {
+  background: white;
+  color: black;
+  border: 1px ivory;
+
+    &:focus {
+      outline: none;
+    }
+}
+
+
+#uniformSubmitButton.hidden {
+  display: none;
+  visibility: hidden;
+
+  &:hover, &:focus {
+    display: block;
+    visibility: visible;
+  }
+}
+
+
+.invisible {
+  display: none;
+}

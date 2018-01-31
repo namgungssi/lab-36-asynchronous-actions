@@ -1,0 +1,21 @@
+#uniformHeader {
+  display: flex;
+  flex-direction: row;
+  background: none;
+}
+
+a#deleteButton {
+  text-decoration: none;
+  color: red;
+  padding: .2em;
+  margin-right: 2.8em;
+  padding-top: .3em;
+
+    &:hover {
+      color: pink;
+    }
+}
+
+div.costume-item {
+  margin-bottom: 2.5em;
+}
