@@ -1,57 +1,57 @@
 import React from 'react';
 import Enzyme, {simulate, mount, shallow} from 'enzyme';
-
 import uuid from 'uuid/v1';
+import uniformReducer from '../components/Uniform/reducer';
 
-import costumeReducer from '../components/Costume/reducer';
 
-describe('Costume Reducer tests', () => {
 
-  let costume = {name: 'Barney', description: 'Purple dinosaur with weird laughs', id: uuid()};
+describe('uniform Reducer tests', () => {
+
+  let costume = {name: 'seattle', description: 'football', id: uuid()};
   let state =[];
 
-  test('add a new costume', () => {
+  test('add a new uniform', () => {
 
-    let action = {type: 'COSTUME_ADD', payload: costume};
-    state = costumeReducer(state, action);
+    let action = {type: 'UNIFORM_ADD', payload: uniform};
+    state = uniformReducer(state, action);
 
     expect(state.length).toEqual(1);
-    expect(state[0].description).toEqual(costume.description);
-    expect(state[0].name).toEqual(costume.name);
+    expect(state[0].description).toEqual(uniform.description);
+    expect(state[0].name).toEqual(uniform.name);
   });
 
-  test('update a costume', () => {
+  test('update a uniform', () => {
 
-    let newcostume = {name: 'Barney 2.0', description: 'Purple dinosaur with weird EVERYTHING' };
+    let newUniform = {name: 'seattle', description: 'basketball' };
 
-      state = costumeReducer(state, {
-      type: 'COSTUME_UPDATE',
+      state = uniformReducer(state, {
+      type: 'UNIFORM_UPDATE',
       payload: {
-        id: costume.id,
-        name: newcostume.name,
-        description: newcostume.description,
+        id: uniform.id,
+        name: newUniform.name,
+        description: newUniform.description,
       }
     });
 
-    expect(state[0].name).toEqual('Barney 2.0');
-    expect(state[0].description).toEqual('Purple dinosaur with weird EVERYTHING');
+    expect(state[0].name).toEqual('seattle');
+    expect(state[0].description).toEqual('basketball');
     expect(state[0].id).toEqual(costume.id);
   });
 
-  test('delete a costume', () => {
+  test('delete a uniform', () => {
 
-    let costume1 = {name: 'Wonder Woman', description: 'Bad ass', id: uuid()};
-    let costume2 = {name: 'Batman', description: 'Meh', id: uuid()};
+    let costume1 = {name: 'seattle', description: 'football', id: uuid()};
+    let costume2 = {name: 'seattle', description: 'basketball', id: uuid()};
 
-    state = [{...costume1}, {...costume2}];
+    state = [{...uniform1}, {...uniform2}];
 
-    state = costumeReducer(state, {
-      type: 'COSTUME_DESTROY',
-      payload: costume2.id
+    state = uniformReducer(state, {
+      type: 'UNIFORM_DESTROY',
+      payload: uniform2.id
     });
 
     expect(state.length).toEqual(1);
-    expect(state[0].name).toEqual('Wonder Woman');
-    expect(state[0].description).toEqual('Bad ass');
+    expect(state[0].name).toEqual('seattle');
+    expect(state[0].description).toEqual('basketball');
   });
 })

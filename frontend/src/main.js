@@ -1,13 +1,12 @@
 import './style/main.scss';
-
 import React from 'react';
 import ReactDom from 'react-dom'
 import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux';
-
 import App from './components/App'
-
 import createStore from './appState/store';
+
+
 
 const store = createStore();
 
@@ -31,5 +30,7 @@ class Main extends React.Component {
     )
   }
 }
+
+
 
 ReactDom.render(<Main/>, document.getElementById('root'));
