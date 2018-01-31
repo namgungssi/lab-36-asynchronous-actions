@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
+import uniformReducer from '../components/Uniform/reducer';
 
-import costumeReducer from '../components/Costume/reducer';
+
 
 export default combineReducers({
-  costumes: costumeReducer,
+  uniforms: uniformReducer,
 })

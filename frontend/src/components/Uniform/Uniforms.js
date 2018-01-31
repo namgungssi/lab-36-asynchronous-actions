@@ -1,14 +1,13 @@
 import React from 'react';
-
 import {connect} from 'react-redux';
-
-import CostumeCreate from './Costume-Create';
-import CostumeList from './Costume-List';
+import UniformCreate from './Uniform-Create';
+import UniformList from './Uniform-List';
 import store from '../../appState/store';
-
 import * as actions from './actions';
 
-class Costumes extends React.Component {
+
+
+class Uniforms extends React.Component {
 
   constructor(props) {
 		super(props);
@@ -20,10 +19,10 @@ class Costumes extends React.Component {
 
   render() {
 		return (
-			<div id="costumeWrapper">
-				<CostumeCreate handler={this.props.handleAddCostume} />
-				<CostumeList
-				 costumes={this.props.costumes}
+			<div id="uniformWrapper">
+				<UniformCreate handler={this.props.handleAddUniform}/>
+				<UniformList
+				 uniforms={this.props.uniforms}
 				 handleDelete={this.props.handleDeleteCostume}
 				 handleUpdate={this.props.handleUpdateCostume}
 				 />
@@ -34,15 +33,15 @@ class Costumes extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		costumes: state.costumes
+		uniform: state.uniforms
 	}
 };
 
 const mapDispatchToProps = (dispatch, getState) => ({
-	handleInitialize: costume => dispatch(actions.costumeInitialize(costume)),
-	handleAddCostume: costume => dispatch(actions.createCostume(costume)),
-	handleUpdateCostume: costume => dispatch(actions.updateCostume(costume)),
-	handleDeleteCostume: costume => dispatch(actions.deleteCostume(costume))
+	handleInitialize: uniform => dispatch(actions.costumeInitialize(uniform)),
+	handleAddUniform: uniform => dispatch(actions.createUniform(uniform)),
+	handleUpdateUniform: uniform => dispatch(actions.updateUniform(uniform)),
+	handleDeleteUniform: uniform => dispatch(actions.deleteUniform(uniform))
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Costumes);
+export default connect(mapStateToProps,mapDispatchToProps)(Uniforms);

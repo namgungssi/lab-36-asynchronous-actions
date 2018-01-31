@@ -32,10 +32,10 @@ describe('POST /api/1.0/accessory', () => {
   test('it should create a new accessory', () => {
     return request
       .post('localhost:5000/api/1.0/accessory')
-      .send({parts: ['wig', 'hat', 'glasses']})
+      .send({parts: ['ball', 'shoes', 'socks']})
       .then((res) => {
         accessoryID = res.body._id;
-        expect(res.body.parts).toEqual(['wig', 'hat', 'glasses']);
+        expect(res.body.parts).toEqual(['ball', 'shoes', 'socks']);
         expect(res.body._id).not.toEqual(undefined);
         expect(res.status).toBe(200);
       });
@@ -45,9 +45,9 @@ describe('POST /api/1.0/accessory', () => {
   test('it should create another new accessory', () => {
     return request
       .post('localhost:5000/api/1.0/accessory')
-      .send({parts: ['tude', 'mask', 'sword']})
+      .send({parts: ['map', 'mask', 'sword']})
       .then((res) => {
-        expect(res.body.parts).toEqual(['tude', 'mask', 'sword']);
+        expect(res.body.parts).toEqual(['map', 'mask', 'sword']);
         expect(res.body._id).not.toBe(undefined);
         expect(res.status).toBe(200);
       });
@@ -61,8 +61,8 @@ describe('GET /api/1.0/accessories', () => {
     return request
       .get('localhost:5000/api/1.0/accessories')
       .then(res => {
-        expect(res.body[0].parts[0]).toEqual('wig');
-        expect(res.body[1].parts[0]).toEqual('tude');
+        expect(res.body[0].parts[0]).toEqual('ball');
+        expect(res.body[1].parts[0]).toEqual('map');
         expect(res.status).toBe(200);
       });
   });
@@ -72,20 +72,20 @@ describe('GET /api/1.0/accessories', () => {
     return request
       .get(`localhost:5000/api/1.0/accessory/${accessoryID}`)
       .then(res => {
-        expect(res.body.parts).toEqual(['wig', 'hat', 'glasses']);
+        expect(res.body.parts).toEqual(['ball', 'shoes', 'socks']);
         expect(res.status).toBe(200);
       });
   });
 
 
   test('it should return a 404 for invalid id', () => {
-    let badID = 12345;
+    let badID = 0000;
     return request
       .get(`localhost:5000/api/1.0/accessory/${badID}`)
       .then(Promise.reject)
       .catch(res => {
         expect(res.status).toEqual(404);
-        expect(res.message).toEqual('Not Found');
+        expect(res.message).toEqual('not found');
       });
   });
 });
@@ -96,7 +96,7 @@ describe('PUT /api/1.0/accessory', () => {
   test('it should update with a put when valid ID is given', () => {
     return request
       .put(`localhost:5000/api/1.0/accessory/${accessoryID}`)
-      .send({parts: ['cape', 'facial hair', 'wig']})
+      .send({parts: ['cleats', 'gloves', 'mask']})
       .then(res => {
         expect(res.text).toBe('Accessory has been updated!');
         expect(res.status).toEqual(200);
@@ -109,7 +109,7 @@ describe('PUT /api/1.0/accessory', () => {
   test('it should create a new uniform', () => {
     return request
       .post('localhost:5000/api/1.0/uniform')
-      .send({name: 'Unicorn', profile: 'grazes on peace and love'})
+      .send({name: 'tacoma', profile: 'tacoma aroma'})
       .then((res) => {
         accRefID = res.body.parts;
         expect(res.body.parts).not.toBe(undefined);
@@ -121,9 +121,9 @@ describe('PUT /api/1.0/accessory', () => {
   test('it should update with an acc using the uniform ref ID', () => {
     return request
       .put(`localhost:5000/api/1.0/accessory/${accRefID}`)
-      .send({parts: ['kigarumi', 'slippers']})
+      .send({parts: ['car', 'gas']})
       .then(res => {
-        expect(res.text).toBe('Accessory has been updated!');
+        expect(res.text).toBe('accessory has been updated!');
         expect(res.status).toEqual(200);
       });
   });
@@ -142,15 +142,15 @@ describe('PUT /api/1.0/accessory', () => {
 
 
   test('it should return a 404 when a bad ID is provided', () => {
-    let badID = 12345;
+    let badID = 0000;
 
     return request
       .put(`localhost:5000/api/1.0/accessory/${badID}`)
-      .send({name: 'Joe Mama'})
+      .send({name: 'hello world'})
       .then(Promise.reject)
       .catch(res => {
         expect(res.status).toEqual(404);
-        expect(res.message).toEqual('Not Found');
+        expect(res.message).toEqual('not found');
       });
   });
 });
@@ -162,7 +162,7 @@ describe('DELETE /api/1.0/accessory/:id', () => {
     return request
       .delete(`localhost:5000/api/1.0/accessory/${accessoryID}`)
       .then(res => {
-        expect(res.text).toEqual('Accessory has been deleted');
+        expect(res.text).toEqual('accessory has been deleted');
       });
   });
 });

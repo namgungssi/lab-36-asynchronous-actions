@@ -41,26 +41,26 @@ module.exports = {
   start: (port) => {
     let usePort = port || process.env.PORT;
     if ( isRunning ) {
-      throw Error ('Server is already running');
+      throw Error ('server is already running');
     }
     http = app.listen(usePort, () => {
       isRunning = true;
-      console.log('Server running on port ', usePort);
+      console.log('server running on port ', usePort);
     });
   },
 
   stop: () => {
     if(! isRunning) {
-      throw Error('Server is already off');
+      throw Error('server is already off');
     }
     if ( ! http ) {
-      throw Error('Invalid Server');
+      throw Error('server invalid');
     }
 
     http.close( () => {
       http = null;
       isRunning = false;
-      console.log('Server stopped');
+      console.log('server stopped');
     });
   },
 };

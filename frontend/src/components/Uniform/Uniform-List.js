@@ -1,22 +1,21 @@
 import React from 'react';
-
 import {connect} from 'react-redux';
+import UniformItem from './Uniform-Item';
 
-import CostumeItem from './Costume-Item';
 
-class CostumeList extends React.Component {
 
+class UniformList extends React.Component {
   render() {
 
-    const costumes = this.props.costumes;
+    const uniforms = this.props.uniforms;
 
     return (
       <div id="kanban">
         {
-            costumes.map((costume, i) =>
-            <CostumeItem handleDelete={this.props.handleDelete}
+            uniforms.map((uiform, i) =>
+            <UniformItem handleDelete={this.props.handleDelete}
               handleUpdate={this.props.handleUpdate}
-              key={i} costume={costume}
+              key={i} uniform={uniform}
             />)
         }
       </div>
@@ -24,4 +23,6 @@ class CostumeList extends React.Component {
   }
 }
 
-export default CostumeList;
+
+
+export default UniformList;

@@ -9,7 +9,7 @@ const uniformRouter = module.exports = express.Router();
 
 
 
-uniformRouter.post('/uniforms', jsonParser, (req, res, next) => {
+uniformRouter.post('/uniform', jsonParser, (req, res, next) => {
   let newUniform = new Uniform(req.body);
 
   newUniform.save()
@@ -18,7 +18,7 @@ uniformRouter.post('/uniforms', jsonParser, (req, res, next) => {
 });
 
 
-uniformRouter.get('/uniforms', (req, res, next) => {
+uniformRouter.get('/uniform', (req, res, next) => {
   let cosObj = req.params || {};
   Uniform.find(cosObj)
   .then(uniform => res.send(uniform))
