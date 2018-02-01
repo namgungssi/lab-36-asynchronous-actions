@@ -16,7 +16,9 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node server.js"
+    "start": "node server.js",
+    "mongo-on": "mkdir -p ./db && mongod --dbpath ./db --smallfiles",
+    "mongo-off": "killall mongod"
   },
   "repository": {
     "type": "git",
