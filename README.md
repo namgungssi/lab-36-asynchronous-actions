@@ -2,8 +2,8 @@
 
 # npm run watch to start webpack and react
 
-# create a .env file with PORT=3000 DB_URL='mongodb://localhost:27017/costumes_prod' run npm i from this directory
+# create a .env file with PORT=3000 DB_URL='mongodb://localhost:27017/costumes_prod' npm i to run from this directory
 
-# type mkdir db, and then run mongod --dbpath=./db to run mongo
+# mkdir db, run mongod --dbpath=./db to run mongo
 
 # npm start to start the server
