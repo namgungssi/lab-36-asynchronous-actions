@@ -19,6 +19,7 @@
     "url": "https://github.com/namgungssi/lab-36-asynchronous-actions/issues"
   },
   "homepage": "https://github.com/namgungssi/lab-36-asynchronous-actions#readme",
+
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
